@@ -322,7 +322,7 @@ SoundSystem::SoundSystem ()
   wavemissile1->setVolume (110);
   waveclick1->setVolume (80);
 #endif
-};
+}
 
 SoundSystem::~SoundSystem ()
 {
