@@ -247,7 +247,7 @@ void CLoadOBJ::Normalize (CModel *model)
   }
 
 //  model->scale = sc;
-};
+}
 
 bool CLoadOBJ::ImportOBJ (CModel *model, char *filename)
 {

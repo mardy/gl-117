@@ -759,7 +759,7 @@ void CLoad3DS::Normalize (CModel *model)
       v->vector.z /= sc;
     }
   }
-};
+}
 
 #endif
 
