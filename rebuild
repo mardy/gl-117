@@ -1,0 +1,71 @@
+#!/bin/sh
+
+echo Setting execution permissions...
+chmod +x win2unix 2> /dev/null
+chmod -x ChangeLog FAQ README INSTALL readme.txt AUTHORS *.spec Makefile.am COPYING NEWS configure.in 2> /dev/null
+chmod -x ./src/*.cpp 2> /dev/null
+chmod -x ./src/*.h 2> /dev/null
+
+echo Windows to Unix filename corrections...
+mv news NEWS 2> /dev/null
+mv install INSTALL 2> /dev/null
+mv authors AUTHORS 2> /dev/null
+mv readme README 2> /dev/null
+mv copying COPYING 2> /dev/null
+mv faq FAQ 2> /dev/null
+
+echo Deleting Windows Debug, .obj, configuration, savegames...
+rm -rf ./src/Debug 2> /dev/null
+rm -rf ./src/*.obj 2> /dev/null
+rm ./saves/* 2> /dev/null
+rm ./src/main.ncb
+rm ./src/main.opt
+rm ./src/main.plg
+
+echo Deleting automake/autoconf files...
+rm config.h 2> /dev/null
+rm configure 2> /dev/null
+rm Makefile 2> /dev/null
+rm Makefile.in 2> /dev/null
+rm src/Makefile 2> /dev/null
+rm src/Makefile.in 2> /dev/null
+rm config.h.in 2> /dev/null
+rm aclocal.m4 2> /dev/null
+rm -rf autom4te* 2> /dev/null
+rm config.log 2> /dev/null
+rm config.h.in~ 2> /dev/null
+rm config.status 2> /dev/null
+rm configure.in.save 2> /dev/null
+rm stamp-h 2> /dev/null
+rm stamp-h1 2> /dev/null
+rm stamp-h.in 2> /dev/null
+rm -rf auto* 2> /dev/null
+#find . -name "cvs" -print > dellog
+#DELLOG=`cat dellog`
+#rm -rf $DELLOG 2> /dev/null
+#rm dellog 2> /dev/null
+
+echo Trying to copy latest automake files...
+cp /usr/share/automake*/missing . 2> /dev/null
+cp /usr/share/automake*/depcomp . 2> /dev/null
+cp /usr/share/automake*/mkinstalldirs . 2> /dev/null
+cp /usr/share/automake*/install-sh . 2> /dev/null
+
+echo Cleaning up doc/src directory from obsolete pdfLaTeX files
+rm doc/src/gl-117.pdf 2> /dev/null
+rm doc/src/gl-117.aux 2> /dev/null
+rm doc/src/gl-117.toc 2> /dev/null
+rm doc/src/gl-117.out 2> /dev/null
+rm doc/src/gl-117.log 2> /dev/null
+
+echo Executing aclocal...
+aclocal
+
+echo Executing autoheader...
+autoheader
+
+echo Executing autoconf...
+autoconf
+
+echo Executing automake...
+automake

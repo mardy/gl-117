@@ -1,0 +1,142 @@
+\documentclass[11pt,bibtotoc,idxtotoc,a4paper,pointlessnumbers]{report}
+
+% allow sophisticated control structures
+\usepackage{ifthen}
+
+% use a whole a4 page
+\usepackage{a4wide}
+
+% show program code\ldots
+\usepackage{verbatim}
+%\usepackage{program}
+
+% use colors
+\usepackage{color}
+\definecolor{darkgreen}{rgb}{0,0.5,0.1}
+
+\usepackage{graphics}
+
+%----------------------------------------------------
+%      Graphics and Hyperlinks
+%----------------------------------------------------
+
+% check for pdfTeX
+\ifx\pdftexversion\undefined
+ % use PostScript graphics
+ \usepackage[dvips]{graphicx}
+ \DeclareGraphicsExtensions{.eps,.epsi}
+ % use hypertex version of hyperref
+ \usepackage[hypertex,hyperindex=false]{hyperref}
+\else
+ % reduce output size
+ \pdfcompresslevel=9
+ % declare pdfinfo
+ \pdfinfo {
+   /Title (gl-117.pdf)
+   /Creator (pdfLaTeX)
+   /Author (Thomas A. Drexl)
+   /Subject (GL-117 documenation)
+   /Keywords (gl-117, flight simulator, documentation)
+ }
+ % use pdf or jpg graphics
+ \usepackage[pdftex]{graphicx}
+ \DeclareGraphicsExtensions{.jpg,.png,.pdf}
+ % use pdftex version of hyperref
+ \usepackage[pdftex,colorlinks=true,linkcolor=blue,citecolor=blue,%
+ anchorcolor=darkgreen,urlcolor=darkgreen,bookmarks=true,%
+ bookmarksopen=true,bookmarksopenlevel=0,plainpages=false%
+ bookmarksnumbered=true,hyperindex=false,pdfstartview=%
+ ]{hyperref}
+\fi
+
+%-------------------------------------------------------------
+%                      Own Commands
+%-------------------------------------------------------------
+
+\newcommand {\bsl} {$\backslash$}
+
+\newcommand{\todo}[1]{
+        {\large {\textbf{TODO start}}} \\
+        \normalsize{{#1}}
+        {\large {\textbf{TODO end}}}
+}
+
+% code, in typewriter
+\newcommand{\code}[1]
+ {\texttt{#1}}
+
+%-------------------------------------------------------------
+%                       Formatting Options
+%-------------------------------------------------------------
+
+% set the bibliography style
+\bibliographystyle{sep}
+
+% allow deeper numbering
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+
+% Have spaces between paragraphs
+% \setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 2pt minus 1pt}
+\frenchspacing
+\sloppy
+
+\pagestyle{headings}
+
+
+%-------------------------------------------------------------
+%------------------------------------------------------------
+%                       Title Information
+
+\author{Thomas Drexl \texttt{\symbol{60}}tom.drexl@gmx.de\texttt{\symbol{62}}}
+\title{GL-117\\User Manual}
+\date{\today}
+
+\parindent0pt
+
+%-------------------------------------------------------------
+%-------------------------------------------------------------
+%-------------------------------------------------------------
+%-------------------------------------------------------------
+%                       Document Body
+%-------------------------------------------------------------
+
+\begin{document}
+
+\input{title}
+
+%==============================================================================
+% Preface/Table of contents
+%==============================================================================
+\pdfbookmark{Table of Contents}{toc}
+\tableofcontents
+
+% \pdfbookmark{List of Figures}{lof}
+% \listoffigures
+
+%==============================================================================
+% Main part
+%==============================================================================
+\input{installation}
+\input{aerodynamics}
+\input{basics}
+\input{squad}
+
+%==============================================================================
+% Appendix
+%==============================================================================
+\appendix
+% \input{quotes}
+% \input{glossary}
+
+%==============================================================================
+% Bibliography/ Index
+%==============================================================================
+% comment the next line not to cite ALL BiBTeX entries
+% \nocite{*}
+% \pdfbookmark{Bibliography}{bibliography}
+% \bibliography{sep}
+
+\end{document}
+

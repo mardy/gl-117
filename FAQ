@@ -1,0 +1,150 @@
+  ________    __                        __        __    __________
+ /   ___  \  /\ \                      /  \      /  \  /\________ \
+/\  /___/\_\ \ \ \                    /    \    /    \ \/_______/\ \
+\ \ \   \/_/_ \ \ \         _______  /\__/\ \  /\__/\ \         \/ /
+ \ \ \  /\__ \ \ \ \       /\______\ \/_/\ \ \ \/_/\ \ \        / /
+  \ \ \ \/_/\ \ \ \ \      \/______/      \ \ \     \ \ \      / /
+   \ \ \___\/  \ \ \ \_______              \ \ \     \ \ \    /\ \
+    \ \________/  \ \________\              \ \_\     \ \ \   \ \_\
+     \/_______/    \/________/               \/_/      \/_/    \/_/
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  GL-117 FREQUENTLY ASKED QUESTIONS
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Section 1: Installing on Linux and Mac
+- ./configure does not find the libraries?
+- ./configure simply does not work?
+- How to compile on MacOSX?
+- Libraries are installed, but gcc (linker) does not find them?
+- internal error, core dump, submit gcc bug report?
+
+Section 2: Configuring the game
+- How to alter resolution, color depth?
+- How to configure the input devices?
+- The joystick rudder and throttle are swapped?
+- Cannot open GLX?
+- Graphics do not initialize?
+- Graphics too lame?
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  S E C T I O N   1
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q: ./configure does not find the libraries?
+
+Make sure to have installed at least OpenGL, GLU, GLUT, OpenGL-devel,
+GLU-devel, and GLUT-devel.
+The exact package names may vary between Linux distributions.
+A good choice for SuSE Linux 8.1 may be Mesa, MesaGLU, MesaGLUT, and
+the -devel equivalents.
+On RedHat 9 you will have to install GLUT-devel!
+
+Make also sure that the library files are located in /lib or /usr/lib.
+For SuSE8.1 the /usr/lib directory must contain libGL.so, libGLU.so,
+and libglut.so.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q: ./configure simply does not work?
+
+You may have the wrong versions of automake and autoconf.
+Create your own configure script calling
+ ./rebuild
+and execute the newly created script
+ ./configure
+ 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q: Why is there no sound?
+
+If the game starts up prompting "Using GLUT only", the game has been
+compiled without sound. Make sure to have SDL, SDL-devel, SDL_mixer
+installed and compile the sources again:
+ ./configure
+ make
+ make install
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q: How to compile on MacOSX?
+
+In the Makefile, set LIBS to
+-framework OpenGL -framework SDL -framework GLUT -framework Foundation
+-lSDL_mixer -lSDLmain -framework QuickTime -framework CoreServices
+-framework AppKit
+
+Make sure that the library and header files can be found by configure.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q: Libraries are installed, but gcc (linker) does not find them?
+
+Try the command
+ g++ -g -O2 -lm -o gl-117 main.o gl.o model.o 3ds.o audio.o land.o \
+  glland.o aiobject.o effects.o roam.o net.o mathtab.o dirs.o \
+  objload.o pilots.o common.o object.o cockpit.o \
+  -lGL -lGLU -lglut -lSDL -lSDLmain -lSDL_mixer \
+  -lXmu -lXext -lXi -lXxf86vm
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q: internal error, core dump, submit gcc bug report?
+
+Sorry, the cause is unknown. Just execute make again until everything is
+compiled and linked properly.
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+S E C T I O N   2
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q: How to alter resolution, color depth?
+
+As the resolution and color depth can not be changed in-game, please edit
+the (text) file
+ $HOME/.gl-117/conf (Unix)
+ GL-117_DIR\saves\conf (Windows)
+and set the corresponding values manually.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q: How to configure the input devices?
+
+Just edit the file
+ $HOME/.gl-117/conf.interface (Unix)
+ GL-117_DIR\saves\conf.interface (Windows)
+and adjust the settings.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q: The joystick rudder and throttle are swapped?
+
+The joystick axes identification depends on the driver (OS).
+Just edit the file conf.interface as described above.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q: Cannot open GLX?
+
+Try another bpp setting in the file conf (described above). (32, 16, 8)
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q: Graphics do not initialize?
+
+This game needs properly installed versions of OpenGL, GLU, and GLUT!
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q: Graphics too lame?
+
+Sorry, OpenGL is not supported by every graphics card.
+You will need at least an Nvidia TNT2 chipset to seriously play the game,
+as well as the appropriate drivers.
+The game has been tested in 800x600 mode on
+ AMD K2 500 AGP1x TNT, quality=0, view=50: FPS>30
+ Athlon 1400 GeForce2, quality=3, view=70: FPS>30
+ P4 2.4GHz GeForce4, quality=5, view=100: FPS>30

@@ -1,0 +1,4 @@
+# This file contains a list of all map file names that shall be loaded
+
+demo1.map
+tirol.map
