@@ -1,3 +1,21 @@
+gl-117 (1.3.0-2ubuntu2) breezy; urgency=low
+
+  * Add desktop file (Closes Malone #2193)
+
+ -- Barry deFreese <bddebian@comcast.net>  Sat,  1 Oct 2005 19:57:03 -0400
+
+gl-117 (1.3.0-2ubuntu1) breezy; urgency=low
+
+  * GL/GLU Transitions
+
+ -- Barry deFreese <bddebian@comcast.net>  Thu,  8 Sep 2005 00:39:27 +0000
+
+gl-117 (1.3.0-2build1) breezy; urgency=low
+
+  * Rebuild for new C++ ABI
+
+ -- Matthias Klose <doko@ubuntu.com>  Tue, 28 Jun 2005 08:29:42 +0000
+
 gl-117 (1.3.0-2) unstable; urgency=low
 
   * FTBFS with gcc-3.4: extra `;' (Closes: Bug#266936)

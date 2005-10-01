@@ -2,7 +2,7 @@ Source: gl-117
 Section: games
 Priority: optional
 Maintainer: Cédric Delfosse <cedric@debian.org>
-Build-Depends: debhelper (>= 4), libglut3-dev (>= 3.7-2), libsdl-mixer1.2-dev (>= 1.2.1), xlibs-static-dev, xlibmesa-gl-dev, xlibmesa-glu-dev, libsdl1.2-dev (>= 1.2.4-1), autotools-dev 
+Build-Depends: debhelper (>= 4), libglut3-dev (>= 3.7-2), libsdl-mixer1.2-dev (>= 1.2.1), xlibs-static-dev, libgl1-mesa-dev | libgl-dev, libglu1-mesa-dev | libglu-dev, libsdl1.2-dev (>= 1.2.4-1), autotools-dev
 Standards-Version: 3.6.1
 
 Package: gl-117

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=0.9.4
+Encoding=UTF-8
+Name=gl-117
+Type=Application
+GenericName=Game
+Comment=Play a flight simulator
+Exec=gl-117
+Terminal=false
+Hidden=false
+Categories=Application;Game;3DGraphics;ActionGame;Simulation
