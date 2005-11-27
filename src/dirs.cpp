@@ -108,7 +108,11 @@ Dirs::Dirs (char *arg)
   char *env = getenv ("GL117");
   char *path = getenv ("PATH");
   char myfile [4096];
+#ifdef __APPLE__
+  strcpy(myfile, DATADIR);
+#else
   sprintf (myfile, "%s/gl-117", DATADIR);
+#endif
   bool founddir = false;
   struct stat mystat;
 
