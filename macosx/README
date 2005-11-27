@@ -1,0 +1,64 @@
+Mac OS X Port of GL-117
+
+Being an SDL/OpenGL program, there were three basic ways to port
+this to OS X:
+
+The best would be to make the configuration and build process
+Framework-aware.  This would make a whole bunch of stuff work better,
+and is the right thing to do, but it's more work than I want to do
+right now. :-)
+
+The worst thing to do would be to compile everything plain-UNIX
+style as libraries and such.  This would be bad because we'd either
+have to compile it static, so the libraries would get out of date,
+or make the user install a bunch of dynamic libraries.
+
+The way I did it was to take the path of least resistance.  I
+bypassed the configure script to make my own config.h, loaded the
+code into Xcode, and built it against the frameworks in the Apple
+style.  Not a lot of work, and only a couple of tweaks to the
+original source later, we're in business.  Hooray!
+
+
+Prerequisites
+
+Whether you want to compile it for yourself or just run it, you
+need the SDL Framework.  You can get it from:
+
+	http://www.libsdl.org/release/SDL-1.2.8.pkg.tar.gz
+
+Once you've installed that, you should be in business.  Open
+GL-117.xcode and put the hammer down.  It should build and run.
+Drag the resulting application wherever you like and enjoy!
+
+
+Notes and Future Improvements
+
+I put the support files in the App wrapper, as you should, but I
+didn't use the methods to get them from there.  That's sort of a
+hack, but it should work.  It did require one change to the original
+code.  The old code was hardwired to look in "DATADIR/gl-117", but
+that was inconvenient here, so I made DATADIR be the Resource folder
+and took "/gl-117" out of the path.  They get copied in during the
+build process.
+
+The config.h thing is a bit of a hack, but its heart is in the right
+place.  As I mentioned earlier, if configure and friends were
+Framework aware, we wouldn't need to do that and could then either
+build it from Xcode or with make if we generated the necessary
+files.
+
+The SDLMain files are from the SDL distribution.  I modified them
+only enough to make them compile cleanly.
+
+Could use a simple NIB.  You won't even see it if you run the program
+fullscreen.  I just think people should be able to find the website
+if they didn't know where it is.  And I could stick my name in there
+too. :-)
+
+There are a lot of code generation options in Xcode that you can
+play with if you want to make it G5-specific or something.  I tried
+to keep it relatively conservative.  Fact is, you need a studly
+graphics card and the CPU matters a lot less.  On a G4 with a GeForce
+2, it's pretty slow.  On a G4 with a GeForce 4, it's OK.  Still
+runs better on the GeForce 5 in my PC, though.
