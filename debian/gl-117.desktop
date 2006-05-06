@@ -8,4 +8,4 @@ Comment=Play a flight simulator
 Exec=gl-117
 Terminal=false
 Hidden=false
-Categories=Application;Game;3DGraphics;ActionGame;Simulation
+Categories=Game;3DGraphics;ActionGame;Simulation;
