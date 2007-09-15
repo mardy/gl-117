@@ -1,3 +1,19 @@
+gl-117 (1.3.2-1.1ubuntu3) gutsy; urgency=low
+
+  * debian/control: 
+    - modified homepage adress to new one. LP: #54124
+    - changed Standard Version to 3.7.2 to prevent linda warning.
+    - changed ${Source-Version} to ${source:Version} to prevent linda
+    warning.
+
+  * debian/rules: 
+    - added rule to clean CVS folders.
+    - modified clean rule to prevent warning.
+
+  * debian/changelog: updated Free Software Foundation postal adress.
+
+ -- Jérôme Guelfucci <jerome.guelfucci@gmail.com>  Sat, 15 Sep 2007 18:17:55 +0200
+
 gl-117 (1.3.2-1.1ubuntu2) gutsy; urgency=low
 
   * debian/control: Update maintainer fields according to debian-

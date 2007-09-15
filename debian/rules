@@ -57,10 +57,13 @@ clean:
 	rm -f build-arch-stamp build-indep-stamp configure-stamp
 
 	# Add here commands to clean up after the build process.
-	-$(MAKE) distclean
-
+	[ ! -f Makefile ] || $(MAKE) distclean
+        
 	dh_clean config.sub config.guess
 	dh_clean
+        
+        # Clean CVS folders
+	find . -type d -name CVS | xargs rm -rf
 
 install: install-arch install-indep
 install-arch:
