@@ -1,2 +1,2 @@
-?package(gl-117):needs="X11" section="Games/Arcade"\
+?package(gl-117):needs="X11" section="Games/Simulation"\
   title="gl-117" command="/usr/games/gl-117"
