@@ -1,3 +1,23 @@
+gl-117 (1.3.2-2) unstable; urgency=low
+
+  * No more depends on xlibs-static-dev (Closes: #421563, #484184)
+
+ -- Cédric Delfosse <cedric@debian.org>  Wed, 16 Jul 2008 22:13:08 +0200
+
+gl-117 (1.3.2-1.1) unstable; urgency=high
+
+  * Non-maintainer upload.
+  * Replace unsatisfiable build-dependency on xlibmesa-glu-dev with
+    libglu1-mesa-dev; fixes FTBFS. (Closes: #374596)
+
+ -- Steinar H. Gunderson <sesse@debian.org>  Tue, 27 Jun 2006 23:51:40 +0200
+
+gl-117 (1.3.2-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Cédric Delfosse <cedric@debian.org>  Sat, 16 Jul 2005 18:23:37 +0200
+
 gl-117 (1.3.0-2) unstable; urgency=low
 
   * FTBFS with gcc-3.4: extra `;' (Closes: Bug#266936)

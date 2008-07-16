@@ -1,9 +1,9 @@
-This package was debianized by Cédric Delfosse <cedric@debian.org> on
+This package was debianized by Cedric Delfosse <cedric@debian.org> on
 Tue, 25 Jun 2002 21:53:50 +0200.
 
-It was downloaded from http://home.t-online.de/home/Primetime./gl-117/download.htm
+It was downloaded from http://www.heptargon.de/gl-117/gl-117.html
 
-Upstream Author: Thomas Drexl <tom.drexl@gmx.de>
+Upstream Author: Copyright 2001-2008 Thomas Drexl <tom.drexl@gmx.de>
 
 Copyright:
 
@@ -18,8 +18,8 @@ Copyright:
 
    You should have received a copy of the GNU General Public License
    along with this package; if not, write to the Free Software
-   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
-   02111-1307, USA.
+   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+
 
 On Debian GNU/Linux systems, the complete text of the GNU General
 Public License can be found in `/usr/share/common-licenses/GPL'.

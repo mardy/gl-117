@@ -30,8 +30,6 @@ WRITE_RGBA(DATA32 *p, DATA8 r, DATA8 g, DATA8 b, DATA8 a)
 {
   DATA8 *dp = (DATA8 *)p;
 
-#ifndef WORDS_BIGENDIAN
-
   dp[0] = r;
   dp[1] = g;
   dp[2] = b;
@@ -40,19 +38,6 @@ WRITE_RGBA(DATA32 *p, DATA8 r, DATA8 g, DATA8 b, DATA8 a)
 //#define R_VAL(p) ((DATA8 *)(p))[0]
 //#define G_VAL(p) ((DATA8 *)(p))[1]
 //#define B_VAL(p) ((DATA8 *)(p))[2]
-
-#else
-
-  dp[0] = a;
-  dp[1] = b;
-  dp[2] = g;
-  dp[3] = r;
-//#define A_VAL(p) ((DATA8 *)(p))[0]
-//#define R_VAL(p) ((DATA8 *)(p))[3]
-//#define G_VAL(p) ((DATA8 *)(p))[2]
-//#define B_VAL(p) ((DATA8 *)(p))[1]
-
-#endif
 
 //#define WRITE_RGBA(p, r, g, b, a) \
 //   R_VAL(p) = (r); \
