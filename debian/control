@@ -1,7 +1,8 @@
 Source: gl-117
 Section: games
 Priority: optional
-Maintainer: Cédric Delfosse <cedric@debian.org>
+Maintainer: Ubuntu MOTU Developers <ubuntu-motu@lists.ubuntu.com>
+XSBC-Original-Maintainer: Cédric Delfosse <cedric@debian.org>
 Build-Depends: debhelper (>= 4), libglut3-dev (>= 3.7-2), libsdl-mixer1.2-dev (>= 1.2.1), libgl1-mesa-dev, libglu1-mesa-dev, libsdl1.2-dev (>= 1.2.4), autotools-dev 
 Standards-Version: 3.8.0
 Homepage: http://www.heptargon.de/gl-117/gl-117.html
