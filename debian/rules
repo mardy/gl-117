@@ -71,6 +71,12 @@ install-arch:
 	# Add here commands to install the package into debian/tmp.
 	$(MAKE) install prefix=$(CURDIR)/debian/tmp/usr
 
+	#install desktop file
+	install -D -m 644 $(CURDIR)/debian/gl-117.desktop $(CURDIR)/debian/gl-117/usr/share/applications/gl-117.desktop
+
+	#install icon file
+	install -D -m 644 $(CURDIR)/debian/gl-117.xpm $(CURDIR)/debian/gl-117/usr/share/pixmaps/gl-117.xpm
+
 	dh_install -a --sourcedir=debian/tmp
 
 install-indep: install-arch
