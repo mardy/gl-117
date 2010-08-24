@@ -7,5 +7,5 @@ Comment=Play a flight simulator
 Exec=gl-117
 Terminal=false
 Hidden=false
-Categories=Game;3DGraphics;ActionGame;Simulation;
+Categories=Game;ActionGame;Simulation;
 Icon=gl-117
