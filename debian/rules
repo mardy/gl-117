@@ -1,119 +1,12 @@
 #!/usr/bin/make -f
-# Sample debian/rules that uses debhelper.
-# GNU copyright 1997 to 1999 by Joey Hess.
-
-# Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-# These are used for cross-compiling and for saving the configure script
-# from having to guess our platform (since we know it already)
-DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
-DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+%:
+	dh $@ --with autoreconf
 
-CXXFLAGS = -Wall -g
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		--prefix=/usr \
+		--bindir=\$${prefix}/games \
+		--datadir=\$${prefix}/share/games
 
-ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
-	CXXFLAGS += -O0
-else
-	CXXFLAGS += -O2
-endif
-ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
-	INSTALL_PROGRAM += -s
-endif
-
-configure: configure-stamp
-configure-stamp:
-	dh_testdir
-
-	cp /usr/share/misc/config.sub /usr/share/misc/config.guess .
-
-	# Add here commands to configure the package.
-	CXXFLAGS="$(CXXFLAGS)" LDFLAGS="$(INSTALL_PROGRAM)" ./configure --host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) --prefix=/usr --bindir=\$${prefix}/games --datadir=\$${prefix}/share/games
-	touch configure-stamp
-
-build: build-arch build-indep
-
-build-arch: build-arch-stamp
-build-arch-stamp: configure-stamp config.status
-	dh_testdir
-
-	# Add here commands to compile the package.
-	$(MAKE)
-
-	touch build-arch-stamp
-
-build-indep: build-arch-stamp build-indep-stamp
-build-indep-stamp: configure-stamp config.status
-	dh_testdir
-
-	# Add here commands to compile the package.
-	# build-arch-stamp build what we need
-
-	touch build-indep-stamp
-
-clean:
-	dh_testdir
-	dh_testroot
-	rm -f build-arch-stamp build-indep-stamp configure-stamp
-
-	# Add here commands to clean up after the build process.
-	[ ! -f Makefile ] || $(MAKE) distclean
-
-	dh_clean config.sub config.guess
-	dh_clean
-
-install: install-arch install-indep
-install-arch:
-	dh_testdir
-	dh_testroot
-	dh_clean -k -a
-
-	# Add here commands to install the package into debian/tmp.
-	$(MAKE) install prefix=$(CURDIR)/debian/tmp/usr
-
-	#install desktop file
-	install -D -m 644 $(CURDIR)/debian/gl-117.desktop $(CURDIR)/debian/gl-117/usr/share/applications/gl-117.desktop
-
-	#install icon file
-	install -D -m 644 $(CURDIR)/debian/gl-117.xpm $(CURDIR)/debian/gl-117/usr/share/pixmaps/gl-117.xpm
-
-	dh_install -a --sourcedir=debian/tmp
-
-install-indep: install-arch
-	dh_testdir
-	dh_testroot
-	dh_install -i --sourcedir=debian/tmp
-
-# Build architecture-independent files here.
-binary-indep: build-indep install-indep
-# We have nothing to do by default.
-	dh_testdir -i
-	dh_testroot -i
-	dh_installdocs -i
-	dh_installchangelogs -i ChangeLog
-	dh_compress -i
-	dh_fixperms -i
-	dh_installdeb -i
-	dh_gencontrol -i
-	dh_md5sums -i
-	dh_builddeb -i
-
-# Build architecture-dependent files here.
-binary-arch: build-arch install-arch
-	dh_testdir -a
-	dh_testroot -a 
-	dh_installdocs -a
-	dh_installmenu -a
-	dh_installman -a doc/gl-117.6
-	dh_installchangelogs -a ChangeLog
-	dh_strip -a 
-	dh_compress -a 
-	dh_fixperms -a 
-	dh_installdeb -a 
-	dh_shlibdeps -a
-	dh_gencontrol -a
-	dh_md5sums -a
-	dh_builddeb -a
-
-binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install

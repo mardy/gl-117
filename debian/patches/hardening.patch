@@ -1,0 +1,21 @@
+From: Markus Koschany <apo@debian.org>
+Date: Sun, 5 Jun 2016 04:10:48 +0200
+Subject: hardening
+
+---
+ configure.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure.in b/configure.in
+index 3be8606..c918563 100644
+--- a/configure.in
++++ b/configure.in
+@@ -60,7 +60,7 @@ AC_CHECK_LIB(SDL,SDL_Init,LIBS="$LIBS -lSDL -lSDLmain",AC_MSG_WARN(SDL not found
+ AC_CHECK_LIB(SDL_mixer,Mix_LoadMUS,LIBS="$LIBS -lSDL_mixer",AC_MSG_WARN(SDL_mixer not found - please install SDL_mixer))
+ 
+ CFLAGS="$CFLAGS"
+-CPPFLAGS="-DDATADIR='\"$datadir\"' -Wall -pedantic"
++CPPFLAGS="-DDATADIR='\"$datadir\"' -Wall -pedantic $CPPFLAGS"
+ CXXFLAGS="$CXXFLAGS"
+ 
+ AC_OUTPUT([ \

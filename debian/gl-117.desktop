@@ -1,11 +1,11 @@
 [Desktop Entry]
-Version=0.9.4
 Name=gl-117
 Type=Application
-GenericName=Game
 Comment=Play a flight simulator
+Comment[de]=Spiele einen Flugsimulator
 Exec=gl-117
+Icon=gl-117
 Terminal=false
 Hidden=false
-Categories=Game;3DGraphics;ActionGame;Simulation;
-Icon=gl-117
+Categories=Game;Simulation;
+Keywords=fighter;aircraft;simulator;
