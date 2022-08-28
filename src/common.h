@@ -1,7 +1,7 @@
 #ifndef IS_COMMON_H
 #define IS_COMMON_H
 
-#include "../config.h" // defines HAVE_SDL, HAVE_SDL_MIXER
+#include "config.h" // defines HAVE_SDL, HAVE_SDL_MIXER
 
 // USE_GLUT means ONLY use GLUT
 // HAVE_SDL means that SDL is available, so USE_GLUT will not be defined

@@ -57,7 +57,7 @@ CColor::CColor (short cr, short cg, short cb, short ca)
   c [0] = cr; c [1] = cg; c [2] = cb; c [3] = ca;
 }
 
-CColor::~CColor () {}
+CColor::~CColor () {};
 
 void CColor::setColor (CColor *col)
 {
