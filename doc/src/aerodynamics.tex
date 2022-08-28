@@ -1,0 +1,110 @@
+\chapter{GL-117 Aerodynamics}
+\label{chap:aerodynamics}
+
+This chapter gives a brief introduction on all the physics
+a pilot has to consider when flying an aircraft.
+
+\section{The four forces}
+\label{sec:forces}
+
+During flight the four forces acting on an aircraft are \textit{lift},
+\textit{drag}, \textit{thrust}, and \textit{weight}, see fig \ref{fig:forces}.
+
+\textit{Lift} is the upward force created by the airflow as it
+passes over the wings.
+In straight, unaccelerated flight, the lift compensates the
+\textit{weight force} and therefore, the aircraft does not climb or dive.
+The lifting force depends on the speed: low speed will cause the
+airplane to dive, at high speed it will even climb.
+Always consider the lift vector. If you fly a roll, the lift will not
+oppose the weight any more and thus, you will lose height.
+
+\textit{Drag} is the retarding force that limits the aircraft's speed.
+There are many factors effecting drag, but one main cause
+is simply the airplane's structure that protrudes into the wind.
+
+\textit{Thrust} is the forward force provided by the engines.
+
+Adding these four forces shows us how the speed of the fighter will change in the
+next few seconds. The overall force is measured in G's with 1G meaning the
+earth's gravity (about $9.81 m/s^2$). Pilots are often exposed to more than 1G, but
+there are clearly limits: high forces above 9G may lead to a blackout and worse,
+forces below -3G let the blood shoot into the head.
+
+\emph{GL-117} provides two models: a simplified aerodynamics model making
+it much easier to handle the aircraft thus promising more action
+and a simulation model considering all the physical aspects as described above.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=10cm]{forces.jpg}
+\caption{The four forces}
+\label{fig:forces}
+\end{center}
+\end{figure}
+
+
+
+\section{Three rotation axes}
+\label{sec:axis}
+
+All maneuvering takes place around three axes of rotation.
+One way to define these axes is a carthesian coordinate system
+with an x axis from left to right,
+a y-axis from top to bottom, and a z-axis from near to far.
+Imagine a flat landscape resembling the x-z plane.
+Your viewing angle within this plane is called the \textit{heading},
+whereas an orthogonal angle is called the \textit{elevation}.
+Just look at figure \ref{fig:heading}.
+
+But we can also define three axes of rotation referring to our fighter.
+They are known as the \textit{longitudinal axis}, \textit{lateral axis},
+and \textit{vertical axis}.
+Imagine a coordinate system with the origin at your fighter's center of gravity.
+The center of gravity is the theoretical point where the entire weight
+of the aircraft is considered to be concentrated.
+
+The \textit{lateral axis} is an imaginary axis protruding through the side
+of the aircraft. A rotation around this axis is known as pitching.
+This pitch movement is produced by the elevators and
+will affect your heading and elevation.
+
+The \textit{longitudinal axis} is an imaginary axis protruding through
+the nose of the aircraft.
+A rotation around this axis is known as a roll.
+This roll movement is produced by the ailerons.
+Consider that a roll will not change your heading.
+
+The \textit{vertical axis} is an imaginary axis protruding through the top and
+bottom
+of the aircraft. A rotation around this axis is know as yawing.
+This yaw movement is produced by the rudder.
+
+Now, look at fig \ref{fig:fly}.
+The blue arrows show the elevator's effect: your fighter will
+either move up and left or it will drop down to the right
+(the lateral axis).
+Using the rudder will move the fighter slightly towards the green arrows
+(the vertical axis).
+
+\begin{figure}
+\begin{tabular}{p{7.2cm}p{7.2cm}}
+\begin{center}
+\includegraphics[width=7.2cm,height=6cm]{heading.jpg}
+\label{fig:heading}
+\end{center} &
+\begin{center}
+\includegraphics[width=7.2cm,height=6cm]{elevation.jpg}
+\label{fig:elevation}
+\end{center}\\
+\begin{center}
+\includegraphics[width=7.2cm,height=6cm]{roll.jpg}
+\label{fig:roll}
+\end{center} &
+\begin{center}
+\includegraphics[width=7.2cm,height=6cm]{fly.jpg}
+\label{fig:fly}\\
+\end{center}
+\end{tabular}
+\caption{The three axes of rotation}
+\end{figure}

@@ -1,0 +1,152 @@
+###############################################################################
+# This is an example mission text file.
+# Important rules:
+# - There are several blocks like "INFO" consisting of special attributes
+# - Assigments have the form "attribute = value" and are put in one line
+# - All attributes are optional if not described as "required"
+# - Everything is case-insensitive (iNfO=info=INFO)
+# - Quotes have to be used if a value consists of whitespace (tabs, spaces)
+# - Comments start with a '#' and end with a line feed (end of line)
+# - Syntax errors are currently displayed on stderr when initing the mission
+###############################################################################
+
+
+
+###############################################################################
+# INFO block:
+#   NAME: Mission name
+#   BRIEFING: Mission briefing
+#   PILOTnn: Allied pilot number nn, nn in [1...10]
+#   - Allied fighters get their pilots in the order defined here
+#   - Possible values (predefined in this order):
+#     PRIMETIME, HEPTARGON, LARA, SHARK, BOSS, DRDOOM, SHADOW, MATRIX,
+#     FIREBIRD, THUNDER
+#   FIGHTERn: Set fighter selection number n, n in [1...3]
+#   - Possible values: FALCON, HAWK, STORM, HAWK2, REDARROW, PHOENIX
+#   - Predefined: FIGHTER1=FALCON, FIGHTER2=HAWK, FIGHTER3=STORM
+#   WEAPONn: Set weapon pack selection number n, n in [1...3]
+#   - Possible values: AAMPACK, AGMPACK, DFPACK
+#   - Predefined: WEAPON1=AAMPACK, WEAPON2=AGMPACK, WEAPON3=DFPACK
+#   MAXTIME: Maximum time in seconds (float) to receive a score bonus
+#     Predefined: 120s
+###############################################################################
+
+INFO
+  name = "DEMO1"
+  briefing = "We place an enemy fighter near the player and a surface air cannon to flat ground. After 15 seconds dr doom will appear near the player and help."
+  PiLoT1 = DRDOOM
+  pilot2 = primetime
+  maxtime = 150
+
+
+
+###############################################################################
+# TERRAIN block:
+#   TYPE: Type of landscape to be randomly generated
+#     ALPINE (predefined), ALPINE_LOW, ALPINE_EROSION, ALPINE_SEA, SEA, MOON,
+#     CANYON, DESERT
+#   FILE: 32 bit TGA file, alpha channel=height values, RGB=landscape type
+#     The colors for landscape types depend on the landscape type
+#     Alpine: blue=water, dark green=woods, light green=grass, white=glacier,
+#             grey=gravel, dark grey=rocks
+#     Canyon: blue=water, white=sand, red=stone/rocks, brown=tree&sand
+#     Desert: blue=water, green=cactus, yellow=sand
+#   SCALEHEIGHT: Scaling factor for height values
+#   TREE[0-2]: tree borders for deciduous, coniferious, mixed, pine woods
+#   HEADING: Degree of northern direction, 0...360, 0 is predefined
+#   WEATHER: SUNNY, CLEAR, CLOUDY, DULL, THUNDERSTORM
+#   TIME: Time of the day (hours) in [0...24], determines day/night, sun level
+###############################################################################
+
+TERRAIN
+  type = alpine_erosion
+  heading =	90
+  weather = sunny
+  time = 8
+
+
+
+###############################################################################
+# OBJECT block: a block for each object, first object is the player!
+#   TYPE: Type of object (ignored for the player)
+#     FALCON, SWALLOW, HAWK, HAWK2, BUZZARD, CROW, PHOENIX, REDARROW,
+#     BLACKBIRD, STORM, TRANSPORT, WIESEL, PANTHER, SAM, SAC, PICKUP, TRUCK,
+#     TRUCK2, SAMTRUCK, DESTROYER, CRUISER, TENT, BIGTENT, CONTAINER, HALL,
+#     HALL2, OILRIG, COMPLEX, RADAR, MOONBASE, DEPOT, LASERBARRIER, ASTEROID
+#   PARTY: 1 for player ally, any other value for enemies
+#   LEVEL: Level of artificial intelligence in [0...10], 10 is highest
+#     Note that the difficulty settings influence the level additionally!
+#   X: Relative x coordinate on the map
+#   Y: Relative y coordinate on the map
+#   INITTIME: Time in seconds (float value) after that the fighter appeares
+#   CRITICAL: 1 for mission objective, 0 else
+#   - Enemies are critical at default, allies are not critical at default
+#   - If any allied critical object is destroyed, the mission is failed
+#   - If all critical enemy objects are destroyed, the mission is successful
+###############################################################################
+
+OBJECT		# Player
+  x = 0
+  y = 0
+  # always: type is taken from selection, party=1, inittime=0, critical=1
+
+OBJECT		# The first enemy
+  type = crow
+  party = 0
+  level = 2
+  x = 40
+  y = 40
+  # implicit: inittime=0, critical=1
+
+
+
+###############################################################################
+# RELCOORDS block: set origin of the coordinate system, (0,0) is predefined
+#   FIND: set origin to PLAYER, LASTOBJECT, FLATTERRAIN
+#     Use this feature to place enemies later on near to the player,
+#     or to place ground objects on flat terrain
+#   QUADRANT: Set map quadrant in [1...16] for searching flat terrain
+#   - Quadrants are 1...4 first row, 5...8 second row, etc.
+#   - Note that 4 and 1, or 16 and 1 are adjacent due to the cyclic map
+#   - Leave the quadrant to get the best flat terrain of the map 
+###############################################################################
+
+RELCOORDS
+  find = flatterrain
+  quadrant = 1	# player is at the corner of the first quadrant
+			# so lets set (0,0) to flat terrain somewhere in quadrant 1
+
+
+OBJECT		# place a surface-air-cannon
+  type = sac
+  level = 0
+  party = 0
+  x = 0
+  y = 0		# (0,0) is now at the flat terrain, not the player!
+  critical = 1
+
+
+
+RELCOORDS
+  find = player	# set player as the origin of the coordinate system
+
+OBJECT		# get DrDoom (see INFO) as reinforcement after 15 seconds
+  type = falcon
+  party = 1
+  x = 0
+  y = 50
+  inittime = 15
+
+
+
+###############################################################################
+# TEXT block: print text to the screen
+#   MESSAGE: the message string, currently only one line
+#   STARTTIME: time in seconds (float value)
+#   DELAY: describes how long the text is displayed
+###############################################################################
+
+TEXT
+  message = "dr doom has arrived!"
+  starttime = 15
+  delay = 3.5

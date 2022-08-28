@@ -1,0 +1,23 @@
+INFO
+  NAME = "AUSTRIA: TIROL"
+  briefing = "This example shows how to load a tga file. The alpha channel contains 256 levels for the height map and the landscape is derived from typical colors. The map shows the surface of southern germany through tirol."
+
+TERRAIN
+  file = tirol.tga
+  scaleheight = 0.15
+  tree1 = 0
+  tree2 = 10
+  tree3 = 40
+  heading =	0
+  weather = sunny
+  time = 10
+
+OBJECT		# Player
+  x = 240		# start at some distance in front of the German highest mountain Zugspitze
+  y = 120
+
+OBJECT		# a dummy object
+  type = tent
+  party = 0
+  x = 0
+  y = 0

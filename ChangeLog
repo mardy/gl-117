@@ -1,0 +1,195 @@
+  ________    __                        __        __    __________
+ /   ___  \  /\ \                      /  \      /  \  /\________ \
+/\  /___/\_\ \ \ \                    /    \    /    \ \/_______/\ \
+\ \ \   \/_/_ \ \ \         _______  /\__/\ \  /\__/\ \         \/ /
+ \ \ \  /\__ \ \ \ \       /\______\ \/_/\ \ \ \/_/\ \ \        / /
+  \ \ \ \/_/\ \ \ \ \      \/______/      \ \ \     \ \ \      / /
+   \ \ \___\/  \ \ \ \_______              \ \ \     \ \ \    /\ \
+    \ \________/  \ \________\              \ \_\     \ \ \   \ \_\
+     \/_______/    \/________/               \/_/      \/_/    \/_/
+
+
+Version 1.3:
+	- optimizations: graphics are much faster now!!!
+	- changed quality modes: higher detail for each mode
+	  (old quality=5 is now quality=4)
+	- enabled higher view rates
+	- source code cleanup (#includes) and documentation
+	- adjustments to missiles
+	- radar improvements
+	- logging to file
+
+Version 1.2:
+	- map editor and examples
+	- bugfix: "Texture XXX not found" problem
+	- bugfix: mouse/joystick events do not occur in different controls settings
+	- bugfix: some missions produced a seg fault when selecting a bomber
+
+Version 1.1:
+	- new graphical user interface
+	- new settings for video and user interface (via menu!)
+	- AI now uses flight maneuvers (immelmann, barrel roll)
+	- two additional tutorials
+	- randomized tree placement
+	- lots of visual improvements
+
+Version 1.0.1-2:
+	- bugfix: missiles likely caused own fighter to crash, esp. DF missiles
+	- bugfix: "Texture XXX not found" problem ignored
+
+Version 1.0.1:
+	- major bugfixes concerning coordinates (lighting, sun)
+	- improved 3DS loader and model textures
+	- changed intro
+
+Version 1.0:
+	- three more missions for the campaign
+	- more realistic physics (optional)
+	- new bomber "Storm"
+	- some visual improvements
+	- adjustments to almost everything
+
+Version 0.9:
+	- faster rendering (occlusion culling: ray casting)
+	- more interface options (multiple joysticks)
+	- difficulty changes/adjustments (easier missions)
+	- two new missions
+	- lots of visual improvements
+	- lots of bugfixes
+
+Version 0.8.8:
+	- new missions (training)
+	- AI bugfixes and improvements
+	- soundtrack addition and improvements
+	- new cannon sound and ammo restriction
+	- further code cleanup and documentation
+	- some visual improvements
+
+Version 0.8.5:
+	- time dependant calculations (enables higher FPS rates)
+	- improved models, replaced fighter models
+	- level of detail: different terrain resolutions
+	- lots of graphical improvements (trees, explosions, smoke, cannon)
+	- added brightness option
+	- added man page and updated documentation
+	- lots of minor improvements and bugfixes
+
+Version 0.8.2:
+	- major code cleanup
+	- added debug levels
+	- added command line parameters
+	- added exit values according to fatal errors
+	- more realistic physics model
+	- added blackouts
+	- new intro (fire)
+	- big endian bugfixes
+	- added plasma background
+
+Version 0.8:
+	- important buffer overflow bugfix
+	- chaff/flare countermeasures
+	- radar and heat seaking missiles
+	- complete interface remapping support by script
+	- one new soundtrack
+	- quit dialog
+	- better air-ground missiles
+	- some mission adjustments
+	- additional cloud layer
+	- game will start if SDL cannot find audio driver
+
+Version 0.7.5:
+	- different HUDs for the fighters
+	- added soundtrack
+	- higher quality LOD
+	- smooth rolls
+	- greyish material at night
+	- ambient light improvements
+	- sun reflectance on water
+	- brightness adjustments when gazing into the sun
+	- nicer landscape colors
+	- new grass texture, better tree textures
+	- bugfix: difficulty extra points are now added to score
+
+Version 0.7:
+	- added clouds
+	- stable music code (no crashes, mem leaks)
+	- added mouse reverse option
+	- better/easier mouse interface
+	- more bugfixes and improvements
+
+Version 0.6.8:
+	- faster quality mode 2
+	- better level of detail
+	- added dithering option
+	- lots of bugfixes and improvements
+
+Version 0.6.5:
+	- new quality mode 1
+	- new great lens flares
+	- added last campaign mission
+	- visual improvements at higher quality levels
+	- important bugfix that caused the game to crash
+
+Version 0.6:
+	- two new missions (one still missing)
+	- list of pilots and fighters
+	- adjusted (easier) missions
+	- improved mouse and joystick interface
+	- better graphics detection system
+
+Version 0.5.5:
+	- two new missions
+	- introduced three difficulty levels
+	- graphics auto detection at first startup
+	- bugfixes
+
+Version 0.5:
+	- lots of new missions
+	- one new soundtrack
+	- "make install" now available for root (linux)
+	- player specific data is stored to the home dir (linux)
+	- lots of minor improvements
+
+Version 0.4.5:
+	- replaced missions by the first seven official missions
+	- added documentation
+	- important bugfixes
+
+Version 0.4:
+	- definition of pilots and stats
+	- better interface: keyboard and mouse, try out the tutorial
+	- nicer fonts
+	- added simple desert landscape
+	- bugfixes and minor updates
+
+Version 0.3.5:
+	- rearranged source code
+	- nicer Intro
+	- two new bombers
+	- advanced missile AI and different missile types
+	- replaced font
+	- updated configure.in
+	- new "standby.s3m"
+	- some bugfixes
+
+Version 0.3:
+	- added audio volume control (only SDL_mixer)
+	- enabled rolling and loopings
+	- added moon terrain
+	- added canyon
+	- added cruiser
+	- visual improvements
+	- new demo missions
+
+Version 0.2:
+	- SDL is now optional
+	- added SDL mixer support, multi-cannel sound
+	- simple background music (tracker modules)
+	- added lightning/thunderstorm
+	- added air defence
+
+Version 0.1:
+	- first public release
+	- two simple demo missions
+	- some sound samples
+	- joystick support

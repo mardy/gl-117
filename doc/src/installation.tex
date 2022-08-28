@@ -1,0 +1,141 @@
+\chapter{GL-117 Installation}
+\label{chap:installation}
+
+This chapter describes the requirements of \emph{GL-117} and its installation
+concerning esp. the libraries required to compile and execute the game.
+
+\section{Requirements}
+\label{sec:requirements}
+
+\emph{GL-117} requires Linux/Unix or MSWindows as operating system as well as
+properly installed versions of the following libraries:
+\begin{itemize}
+\item{OpenGL or MesaGL: graphics library, 3D engine}
+\item{GLU or MesaGLU: utilities for GL}
+\item{GLUT or MesaGLUT: a toolkit that provides keyboard and mouse support}
+\item{SDL (optional): the Direct Media Layer library has similar features of GLUT plus joystick
+support and basic sound processing}
+\item{SDL\_mixer (optional): a library that provides advanced multichannel sound
+support and music}
+\end{itemize}
+
+Installation of \texttt{SDL} and \texttt{SDL\_mixer} is optional, however strongly recommended.
+
+\section{Downloading GL-117}
+\label{sec:downloading_gl117}
+
+The latest \emph{GL-117} release is currently available for download at
+\texttt{http://www.heptargon.de} in \texttt{.tar.gz} or \texttt{.zip} format.
+Try to get a suitable binary package for your system, so you needn't recompile the game.
+Some Linux distributions (Debian, PLD) already include the latest game releases and provide an update
+mechanism to download and install the game via internet.
+Using MSWindows there is already a prebuilt executable. 
+
+Now unpack the archive file with your favourite tool.
+For MSWindows I can recommend \texttt{7-zip}, if you are searching for free software that can handle multiple formats.
+
+To extract the files on command line please look at the file suffix:
+\begin{verbatim}
+unzip gl-117-x.y.z-src.zip
+tar zxvf gl-117-x.y.z-src.tar.gz
+tar jxvf gl-117-x.y.z-src.tar.bz2
+\end{verbatim}
+with \texttt{x.y.z} meaning the \emph{GL-117} version
+number. For last minute updates and release-specific building and
+install instructions, make sure to have a look at the
+\texttt{README} and \texttt{INSTALL} files.
+
+
+\section{Linux/Unix installation}
+\label{sec:linux_installation}
+
+If you got a binary package, you will only
+need the libraries \texttt{GL, GLU, GLUT} and \texttt{SDL, SDL\_mixer} as
+described above and install them, e.g. for \texttt{rpm} files enter:
+\begin{verbatim}
+ rpm -i SDL-*.rpm
+ rpm -i gl-117-*.rpm
+\end{verbatim}
+
+In order to \textit{compile} \emph{GL-117} you will also have to install the development
+versions \texttt{-devel} of the libraries above (except \texttt{SDL\_mixer}).
+To compile \emph{GL-117} (as \textit{root}) do the following steps in the \texttt{gl-117-x.y.z-src}
+directory:
+\begin{verbatim}
+ ./configure
+ make
+\end{verbatim}
+
+The \texttt{configure} script will check for the required libraries and will output
+a \texttt{Makefile}, which can be invoked using the \texttt{make} command.
+After compiling \emph{GL-117} successfully, you will find a binary called \texttt{gl-117}
+in the \texttt{src} directory.\\
+To really \textit{install} \emph{GL-117} please use:
+\begin{verbatim}
+ make install
+\end{verbatim}
+This will copy the binary to your binary directory (e.g. \texttt{/usr/local/bin})
+and the rest of data files to your data directory (e.g. \texttt{/usr/local/share}).
+Any files that require output permissions will be stored in the user's home directory,
+exactly \texttt{\$HOME/.gl-117}.\\
+This step will require write permissions in the binary and data directories.
+However, without \textit{root} permissions you may customize these directories using for example
+\begin{verbatim}
+ ./configure --prefix='/home/tom/gl-117'
+ make
+ make install
+\end{verbatim}
+
+If you encounter any problems while building or executing the game, please read the \texttt{FAQ}
+file or write a mail to \texttt{tom.drexl@gmx.de}.
+
+\section{MSWindows installation}
+\label{sec:windows_installation}
+
+First, you might have to install \texttt{GL, GLU, GLUT} and \texttt{SDL, SDL\_mixer}.
+Look into your system directory, that is generally
+\begin{verbatim}
+ \WINDOWS\SYSTEM    for Windows9x/ME
+ \WINDOWS\SYSTEM32  for WindowsNT/2000/XP
+\end{verbatim}
+You will need the files \texttt{opengl32.dll, glu32.dll, glut32.dll, sdl.dll, sdl\_mixer.dll}
+there.
+If one is missing, please search the internet and move the file there.
+That's it. Execute the binary \texttt{gl-117.exe} stored in a directory with the same name.
+
+If you had already an earlier version of \emph{GL-117} you might want to use your
+old pilots with the new version of the game. Therefore copy the old
+\texttt{saves} directory to the new version.
+
+This game is *NOT* meant to be a Windows game! Do not complain if there is no proper
+installer available! Do not complain, if you are not able to unpack and install the game!
+There are plenty other and better commercial action games.
+
+\section{Running GL-117}
+\label{sec:running_gl117}
+
+At startup, \emph{GL-117} tries to read the files \texttt{conf} and \texttt{conf.interface}
+from the user's home directory (Linux/Unix) or the \texttt{saves} directory (MSWindows).
+If there are none, the game will try out some screen settings and store the files.
+\begin{verbatim}
+ Linux/Unix      $HOME/.gl-117/conf
+                 $HOME/.gl-117/conf.interface
+ MSWindows       GL-117-INSTALLDIR/saves/conf
+                 GL-117-INSTALLDIR/saves/conf.interface
+\end{verbatim}
+
+You may edit these file using your favourite text editor and adjust the settings
+to your system. Since version \textit{1.1}, \emph{GL-117} provides a full menu based configuration
+of these files.
+
+If you lack a hardware accelerated video card, please turn down the
+quality to 0 or 1. Further acceleration can be achieved negligating fullscreen mode
+and choosing a lower resolution.\\
+Just delete the files \texttt{conf} and/or \texttt{conf.interface}
+if you want to reset to the initial settings.
+
+Typical performance values:
+
+ AMD K2 500 AGP1x TNT, quality=0, view=50: FPS$>$30\\
+ Athlon 1400 GeForce2, quality=3, view=70: FPS$>$30\\
+ P4 2.4GHz GeForce4, quality=4, view=110: FPS$>$30
