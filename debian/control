@@ -1,7 +1,8 @@
 Source: gl-117
 Section: games
 Priority: optional
-Maintainer: Debian QA Group <packages@qa.debian.org>
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Debian QA Group <packages@qa.debian.org>
 Build-Depends:
  dh-autoreconf,
  debhelper (>= 9),
