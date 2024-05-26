@@ -1,0 +1,7 @@
+CONSOLE=wii
+
+source /etc/profile.d/devkit-env.sh
+export PKG_CONFIG_PATH=$($DEVKITPRO/portlibs_prefix.sh $CONSOLE)/lib/pkgconfig/
+CPPFLAGS+=" -I$DEVKITPRO/libogc/include" \
+        ./configure --host powerpc-eabi \
+            --datadir=/apps/
