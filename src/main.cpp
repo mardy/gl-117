@@ -4704,7 +4704,7 @@ void init_display ()
 
   float xf = 1.75F, yf = 1.78F, zf = 2.0F;
   glPushMatrix ();
-  gl->enableTextures (5000);
+  gl->enableTextures (2000);
   glTexEnvi (GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
   glBegin (GL_QUADS);
   glTexCoord2d (0, 1);
@@ -4792,7 +4792,7 @@ void proceedFire ()
     glEnd ();
   }
   glPopMatrix ();
-  glBindTexture (GL_TEXTURE_2D, 5000);
+  glBindTexture (GL_TEXTURE_2D, 2000);
   glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
   glTexImage2D (GL_TEXTURE_2D, 0, 4, maxfx, maxfy, 0, GL_RGBA, GL_UNSIGNED_BYTE, firetex);
 }
