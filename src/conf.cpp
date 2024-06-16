@@ -53,11 +53,19 @@ unsigned int key_firecannon = 32, key_firemissile = 13, key_dropchaff = 'C', key
 unsigned int key_selectmissile = 'M', key_thrustup = 'S', key_thrustdown = 'X';
 unsigned int key_targetnearest = 'E', key_targetnext = 'T', key_targetprevious = 'P', key_targetlocking = 'L';
 
+#ifdef __WII__
+int joystick_firecannon = 2, joystick_firemissile = 3, joystick_dropchaff = 1, joystick_dropflare = 1;
+int joystick_selectmissile = 0, joystick_thrustup = 5, joystick_thrustdown = 4;
+int joystick_targetnearest = 101, joystick_targetnext = 100, joystick_targetprevious = 102, joystick_targetlocking = 103;
+int joystick_aileron = 6, joystick_elevator = 7, joystick_rudder = 6, joystick_throttle = -1000;
+int joystick_view_x = -1000, joystick_view_y = -1000;
+#else
 int joystick_firecannon = 0, joystick_firemissile = 2, joystick_dropchaff = 3, joystick_dropflare = 3;
 int joystick_selectmissile = 1, joystick_thrustup = 4, joystick_thrustdown = 5;
 int joystick_targetnearest = 101, joystick_targetnext = 100, joystick_targetprevious = 102, joystick_targetlocking = 103;
 int joystick_aileron = 0, joystick_elevator = 1, joystick_rudder = 3, joystick_throttle = 2;
 int joystick_view_x = 4, joystick_view_y = 5;
+#endif
 
 unsigned char mouse_firecannon = MOUSE_BUTTON_LEFT, mouse_firemissile = MOUSE_BUTTON_RIGHT;
 unsigned char mouse_selectmissile = MOUSE_BUTTON_MIDDLE;
