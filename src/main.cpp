@@ -51,6 +51,10 @@ TODO:
 
 #include <ctype.h>
 
+#if defined(__WII__) || defined(__GAMECUBE__)
+#  include <fat.h>
+#endif
+
 int mousex, mousey;
 
 int debug = 1;
@@ -7405,6 +7409,14 @@ void createMenu ()
 int main (int argc, char **argv)
 {
   char buf [STDSIZE]; // temp buffer
+
+#if defined(__WII__) || defined(__GAMECUBE__)
+  setenv("HOME", "/apps/gl-117", 1);
+  setenv("OPENGX_DEBUG", "warning", 1);
+  fatInitDefault();
+  static char *fake_argv[] = { "gl-117", NULL };
+  argv = fake_argv;
+#endif
 
   checkargs (argc, argv); // process command line parameters
 
