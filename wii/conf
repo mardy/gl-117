@@ -1,0 +1,40 @@
+# Configuration
+
+# Some possible width x height values for fullscreen mode:
+#  640x480, 800x600, 1024x768, 1152x864, 1280x768, 1280x960, 1280x1024
+ width = 640
+ height = 480
+# Possible bits per pixel values (color depth):
+#  8 (not recommended), 16, 24, 32
+ bpp = 32
+# Try to go fullscreen = 1, game in window = 0
+ fullscreen = 1
+# Quality: 0=software rendered up to 5=best (default=2)
+ quality = 2
+# Far clipping plane: 20..100 (default=50)
+ view = 90
+# Dithering: 0=off, 1=on (default=1)
+ dithering = 1
+# Antialiasing: 0=off, 1=on (default=1)
+ antialiasing = 1
+# Special effects: 0=off, 1=on (default=1)
+ specialeffects = 1
+# Dynamic lighting: 0=off, 1=on (default=1)
+ dynamiclighting = 1
+# Sound volume: 0..100 (default=100) per cent
+ sound = 100
+# Music volume: 0..100 (default=100) per cent
+ music = 100
+# Piloting controls: 0=keyboard, 1=mouse easy, 2=joystick
+ controls = 2
+# Difficulty level: 0=easy, 1=medium, 2=hard
+ difficulty = 1
+# Brightness: -50..50 per cent (default=0)
+ brightness = 0
+# Physics: 0=action, 1=realistic
+ physics = 0
+
+# This file is meant to give sensible startup settings
+# as graphic cards and drivers may differ some 100 times in speed
+
+# To get back to default settings, just delete this file!

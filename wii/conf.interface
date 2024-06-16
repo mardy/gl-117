@@ -1,0 +1,74 @@
+# Interface configuration
+
+# ---------------------------------------------------------------------
+# Keyboard section
+# ---------------------------------------------------------------------
+
+# Use ASCII-Code values or letters to remap
+#  8=BACKSPACE, 13=ENTER, 32=SPACE, 65=A...90=Z (NOT case sensitive)
+ key_firecannon = 32
+ key_firemissile = 13
+ key_dropflare = 70
+ key_dropchaff = 67
+ key_selectmissile = 77
+#  Target nearest enemy with priority for enemies in front of you
+ key_targetnearest = 69
+#  Target next enemy who has locked you
+ key_targetlocking = 76
+ key_targetnext = 84
+ key_targetprevious = 80
+ key_incthrust = 83
+ key_decthrust = 88
+# All other piloting keys (CURSORS, PGUP/DN) are fixed.
+
+# ---------------------------------------------------------------------
+# Mouse section
+# ---------------------------------------------------------------------
+
+# Sensitivity: 70...200%, 70%=full screen area, 200%=max sensitivity
+ mouse_sensitivity = 100
+# Reverse y-axis: 0 (no) or 1 (yes)
+ mouse_reverse = 0
+# Relative coordinates: 0 (no) or 1 (yes)
+ mouse_relative = 0
+# Auto rudder on x-axis, dead area for rolls: 0...100
+ mouse_autorudder = 30
+
+# Buttons: 1=Left, 2=Middle, 3=Right
+ mouse_firecannon = 1
+ mouse_firemissile = 3
+ mouse_selectmissile = 2
+
+# ---------------------------------------------------------------------
+# Joystick section
+# ---------------------------------------------------------------------
+
+# The number of axes, buttons, and the coolie hat depends on your joystick!
+# Numbers start with A=first joystick, B=second joystick...J=10th joystick
+#  followed by a number to identify axes, buttons, and coolie hat
+
+# Axis: 0...MAX-1 (maybe 0=aileron 1=elevator 2=throttle 3=rudder)
+ joystick_aileron = A6
+ joystick_elevator = A7
+ joystick_throttle = @0
+ joystick_rudder = A6
+ joystick_view_x = @0
+ joystick_view_y = @0
+
+# Buttons: 0...MAX-1, Coolie: 100=Right, 101=Up, 102=Left, 103=Down
+ joystick_firecannon = A2
+ joystick_firemissile = A3
+# Dropping chaff AND flare may be preferred
+ joystick_dropflare = A1
+ joystick_dropchaff = A1
+ joystick_selectmissile = A0
+ joystick_targetnearest = A101
+ joystick_targetlocking = A103
+ joystick_targetnext = A100
+ joystick_targetprevious = A102
+ joystick_incthrust = A5
+ joystick_decthrust = A4
+
+# This file is meant to give sensible custom interface settings
+
+# To get back to default settings, just delete this file!
