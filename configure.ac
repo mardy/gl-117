@@ -23,7 +23,7 @@ PKG_PROG_PKG_CONFIG
 
 PKG_CHECK_MODULES(SDL, [sdl], AC_DEFINE(HAVE_SDL),
     AC_MSG_WARN(SDL.h not found - no sounds and no joystick available))
-PKG_CHECK_MODULES(GL, [opengl glut], [
+PKG_CHECK_MODULES(GL, [opengl glut glu], [
     AC_DEFINE(HAVE_GL)
     AC_DEFINE(HAVE_GLU)
     AC_DEFINE(HAVE_GLUT)
