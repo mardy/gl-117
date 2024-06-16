@@ -5340,6 +5340,9 @@ void sdlMainLoop ()
               event.jaxis.value += 2500;
             else
               event.jaxis.value -= 2500;
+#ifdef __WII__
+            if (event.jaxis.which < 4 && event.jaxis.axis == 7) event.jaxis.value = -event.jaxis.value;
+#endif
             jaxis [event.jaxis.axis + event.jaxis.which * 10] = (int) event.jaxis.value * 32768 / 30268;
           }
           break;
